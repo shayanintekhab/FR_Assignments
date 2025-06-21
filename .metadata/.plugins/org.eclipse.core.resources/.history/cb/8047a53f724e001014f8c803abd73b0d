@@ -1,0 +1,146 @@
+package com.main;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * LockedMe.com Prototype (In‑Memory Version)
+ *
+ * - Maintains a List<String> of “file names”
+ * - List (ascending), Add, Delete, Search
+ * - Menu navigation and exit
+ */
+public class LockedMeApp {
+    private List<String> fileList = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        LockedMeApp app = new LockedMeApp();
+        app.showWelcomeScreen();
+        app.mainMenu();
+    }
+
+    // Welcome & developer info
+    private void showWelcomeScreen() {
+        System.out.println("========================================");
+        System.out.println("       Welcome to LockedMe.com          ");
+        System.out.println("       Developer: Md Shayan Intekhab from IITD        ");
+        System.out.println("========================================");
+        System.out.println("This prototype manages an in‑memory list of file names.");
+        System.out.println();
+    }
+
+    // Main menu loop
+    private void mainMenu() {
+        while (true) {
+            System.out.println("Main Menu:");
+            System.out.println("1. List all files (ascending)");
+            System.out.println("2. Business Operations");
+            System.out.println("3. Exit");
+            System.out.print("Select an option (1–3): ");
+            String choice = scanner.nextLine().trim();
+
+            switch (choice) {
+                case "1":
+                    listAllFiles();
+                    break;
+                case "2":
+                    businessOperationsMenu();
+                    break;
+                case "3":
+                    System.out.println("Exiting application. Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please enter 1, 2 or 3.\n");
+            }
+        }
+    }
+
+    // List all “files” in ascending order
+    private void listAllFiles() {
+        if (fileList.isEmpty()) {
+            System.out.println("No files in the directory.\n");
+            return;
+        }
+
+        List<String> sorted = new ArrayList<>(fileList);
+        Collections.sort(sorted, String.CASE_INSENSITIVE_ORDER);
+
+        System.out.println("Files in ascending order:");
+        for (String name : sorted) {
+            System.out.println("  " + name);
+        }
+        System.out.println();
+    }
+
+    // Sub‑menu for add, delete, search
+    private void businessOperationsMenu() {
+        while (true) {
+            System.out.println("Business Operations:");
+            System.out.println("A. Add a file");
+            System.out.println("B. Delete a file");
+            System.out.println("C. Search for a file");
+            System.out.println("D. Back to Main Menu");
+            System.out.print("Select an option (A–D): ");
+            String choice = scanner.nextLine().trim().toUpperCase();
+
+            switch (choice) {
+                case "A":
+                    addFile();
+                    break;
+                case "B":
+                    deleteFile();
+                    break;
+                case "C":
+                    searchFile();
+                    break;
+                case "D":
+                    System.out.println();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please enter A, B, C or D.\n");
+            }
+        }
+    }
+
+    // Add a new “file” (ignore case for duplicates)
+    private void addFile() {
+        System.out.print("Enter filename to add: ");
+        String filename = scanner.nextLine().trim();
+
+        // check existing names ignoring case
+        boolean exists = fileList.stream()
+                                 .anyMatch(f -> f.equalsIgnoreCase(filename));
+        if (exists) {
+            System.out.println("A file with that name already exists.\n");
+        } else {
+            fileList.add(filename);
+            System.out.println("File '" + filename + "' added successfully.\n");
+        }
+    }
+
+    // Delete an existing “file” (exact match, case-sensitive)
+    private void deleteFile() {
+        System.out.print("Enter exact filename to delete: ");
+        String filename = scanner.nextLine().trim();
+
+        if (fileList.remove(filename)) {
+            System.out.println("File '" + filename + "' deleted successfully.\n");
+        } else {
+            System.out.println("File not found: " + filename + "\n");
+        }
+    }
+
+    // Search for a “file” (exact match, case-sensitive)
+    private void searchFile() {
+        System.out.print("Enter filename to search: ");
+        String filename = scanner.nextLine().trim();
+
+        if (fileList.contains(filename)) {
+            System.out.println("File found: " + filename + "\n");
+        } else {
+            System.out.println("File not found: " + filename + "\n");
+        }
+    }
+}
