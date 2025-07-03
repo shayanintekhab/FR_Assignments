@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>All Users</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f4f4f4;
+    }
+    .search-bar {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+    }
+    .search-bar button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+    table {
+      width: 90%;
+      margin: auto;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>All Users</h2>
+
+  <!-- 🔍 Search Form -->
+  <div class="search-bar">
+    <form th:action="@{/users/search}" method="post">
+      <input type="text" name="keyword" placeholder="Search by name or email..." 
+             th:value="${keyword}">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${users}">
+        <td th:text="${user.name}">Name</td>
+        <td th:text="${user.email}">Email</td>
+        <td th:text="${user.type}">Type</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
