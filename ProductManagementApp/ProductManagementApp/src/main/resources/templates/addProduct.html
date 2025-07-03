@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 40px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add New Product</h2>
+  
+  <div th:if="${message}" style="color: green; font-weight: bold; margin-bottom: 15px;" th:text="${message}"></div>
+  
+  <form th:action="@{/products/add}" th:object="${product}" method="post">
+    <input type="text" th:field="*{pname}" placeholder="Product Name" required>
+    <input type="text" th:field="*{category}" placeholder="Category" required>
+    <button type="submit">Add Product</button>
+  </form>
+</div>
+
+</body>
+</html>

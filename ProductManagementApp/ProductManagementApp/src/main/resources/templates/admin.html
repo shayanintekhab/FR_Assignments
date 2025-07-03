@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
+      padding: 40px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h3 {
+      margin-bottom: 15px;
+      color: #007bff;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    label {
+      font-weight: 500;
+    }
+    input, button {
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    .link-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+    .link-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Admin Dashboard</h2>
+
+  <!-- Add and View Products -->
+<div class="section">
+  <h3>Manage Products</h3>
+  <a th:href="@{/products/add}" class="link-btn">Add Product</a>
+  <a th:href="@{/products/all}" class="link-btn" style="margin-left: 10px;">Show All Products</a>
+</div>
+
+
+  <!-- View All Users -->
+  <div class="section">
+    <h3>View Users</h3>
+    <a th:href="@{/users/users}" class="link-btn">Show All Users</a>
+  </div>
+
+ 
+
+  <!-- Filter Purchase Reports -->
+  <div class="section">
+    <h3>Filter Purchase Reports</h3>
+    <form th:action="@{/purchases/filter}" method="post">
+      <label>From Date:</label><br>
+      <input type="date" name="fromDate"><br>
+
+      <label>To Date:</label><br>
+      <input type="date" name="toDate"><br>
+
+      <label>Category:</label><br>
+      <input type="text" name="category" placeholder="e.g. Electronics"><br>
+
+      <button type="submit" class="btn">Filter Reports</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
