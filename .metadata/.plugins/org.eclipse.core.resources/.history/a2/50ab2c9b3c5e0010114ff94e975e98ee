@@ -1,0 +1,56 @@
+package com.service;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import com.bean.Account;
+
+public class AccountService {
+
+    private List<Account> listOfAccount = new ArrayList<>();
+
+    public String accountCreate(Account account) { // accno must be unique, amount > 1000
+        if (account.getAmount() < 1000) {
+            return "Min amount must be >=1000";
+        }
+
+        for (Account acc : listOfAccount) {
+            if (acc.getAccno() == account.getAccno()) {
+                return "Account already exists";
+            }
+        }
+
+        listOfAccount.add(account);
+        return "Account created";
+    }
+
+    public float getBalance(int accno) {
+        for (Account acc : listOfAccount) {
+            if (acc.getAccno() == accno) {
+                return acc.getAmount();
+            }
+        }
+        return -1.0f; // Indicate account not found
+    }
+
+    public List<Account> getAllAccounts() {
+        return listOfAccount;
+    }
+
+    public Account getAccountDetails(int accno) {
+        for (Account acc : listOfAccount) {
+            if (acc.getAccno() == accno) {
+                return acc;
+            }
+        }
+        return null;
+    }
+
+    // Optional: For testing or UI, add a method to print all accounts
+    public void printAllAccounts() {
+        for (Account acc : listOfAccount) {
+            System.out.println(acc);
+        }
+    }
+}
