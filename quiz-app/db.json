@@ -1,0 +1,29 @@
+{
+  "questions": [
+    { "id": 1, "question": "Capital of France?", "options": ["Paris","Rome","Berlin","Madrid"], "answer": "Paris" },
+    { "id": 2, "question": "Red Planet?", "options": ["Mars","Venus","Jupiter","Saturn"], "answer": "Mars" },
+    { "id": 3, "question": "Largest ocean on Earth?", "options": ["Pacific","Atlantic","Indian","Arctic"], "answer": "Pacific" },
+    { "id": 4, "question": "Chemical symbol for water?", "options": ["H2O","O2","CO2","NaCl"], "answer": "H2O" },
+    { "id": 5, "question": "Fastest land animal?", "options": ["Cheetah","Lion","Horse","Gazelle"], "answer": "Cheetah" },
+    { "id": 6, "question": "Square root of 64?", "options": ["6","7","8","9"], "answer": "8" },
+    { "id": 7, "question": "Who wrote 'Romeo and Juliet'?", "options": ["Shakespeare","Hemingway","Tolstoy","Dickens"], "answer": "Shakespeare" },
+    { "id": 8, "question": "Primary gas in air?", "options": ["Nitrogen","Oxygen","Carbon Dioxide","Hydrogen"], "answer": "Nitrogen" },
+    { "id": 9, "question": "1 kilometer equals how many meters?", "options": ["100","1000","10000","100000"], "answer": "1000" },
+    { "id": 10, "question": "Hottest planet in solar system?", "options": ["Venus","Mercury","Mars","Jupiter"], "answer": "Venus" },
+    { "id": 11, "question": "Hardest natural substance?", "options": ["Diamond","Gold","Iron","Quartz"], "answer": "Diamond" },
+    { "id": 12, "question": "Largest continent?", "options": ["Asia","Africa","North America","Europe"], "answer": "Asia" },
+    { "id": 13, "question": "Light speed is approx?", "options": ["300,000 km/s","150,000 km/s","30,000 km/s","3,000 km/s"], "answer": "300,000 km/s" },
+    { "id": 14, "question": "Author of '1984'?", "options": ["George Orwell","Aldous Huxley","Ray Bradbury","J.K. Rowling"], "answer": "George Orwell" },
+    { "id": 15, "question": "Atomic number of carbon?", "options": ["6","12","14","8"], "answer": "6" },
+    { "id": 16, "question": "Pythagoras theorem applies to?", "options": ["Right triangle","Equilateral triangle","Isosceles triangle","Any triangle"], "answer": "Right triangle" },
+    { "id": 17, "question": "Who painted Mona Lisa?", "options": ["Leonardo da Vinci","Michelangelo","Picasso","Van Gogh"], "answer": "Leonardo da Vinci" },
+    { "id": 18, "question": "Boiling point of water?", "options": ["100°C","90°C","80°C","70°C"], "answer": "100°C" },
+    { "id": 19, "question": "Smallest prime number?", "options": ["0","1","2","3"], "answer": "2" },
+    { "id": 20, "question": "Which is a mammal?", "options": ["Dolphin","Shark","Octopus","Penguin"], "answer": "Dolphin" },
+    { "id": 21, "question": "First element on periodic table?", "options": ["Hydrogen","Helium","Lithium","Carbon"], "answer": "Hydrogen" },
+    { "id": 22, "question": "Square of 12?", "options": ["144","124","132","156"], "answer": "144" },
+    { "id": 23, "question": "Longest river in world?", "options": ["Nile","Amazon","Yangtze","Mississippi"], "answer": "Nile" },
+    { "id": 24, "question": "Primary colors count?", "options": ["2","3","4","5"], "answer": "3" },
+    { "id": 25, "question": "Which language is React written in?", "options": ["JavaScript","Python","Ruby","Java"], "answer": "JavaScript" }
+  ]
+}
