@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   mysqldb-service:
     image: mysql:8.0
@@ -10,19 +12,23 @@ services:
     restart: always
 
   spring-boot-service:
-    image: akashkale/springboot:v1
-    #build: ./backend/spring-user-service/
+    # public demo image from the official Spring guide
+    image: springio/gs-spring-boot-docker
     container_name: spring_boot_container
+    # note: that demo image listens on container port 8080
     ports:
-      - "9090:9090"
+      - "9090:8080"
     depends_on:
       - mysqldb-service
     restart: always
 
   reactjs-service:
-    image: akashkale/reactjs:v1
-    #build: ./frontend/react-user-app/
+    # generic Nginx image to serve static files
+    image: nginx:alpine
     container_name: reactjs_container
     ports:
       - "81:80"
+    # mount your built React app into Nginx (read‑only)
+    volumes:
+      - ./frontend/react-user-app/build:/usr/share/nginx/html:ro
     restart: always
