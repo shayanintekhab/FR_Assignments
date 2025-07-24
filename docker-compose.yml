@@ -1,0 +1,27 @@
+services:
+  mysqldb-service:
+    image: mysql:8.0
+    container_name: mysql_container
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=user_db
+    restart: always
+
+  spring-boot-service:
+    image: akashkale/springbootv1
+    build: ./backend/spring-user-service/
+    container_name: spring_boot_container
+    ports:
+      - "9090:9090"
+    depends_on:
+      - mysqldb-service
+    restart: always
+
+  reactjs-service:
+    build: ./frontend/react-user-app/
+    container_name: reactjs_container
+    ports:
+      - "81:80"
+    restart: always
